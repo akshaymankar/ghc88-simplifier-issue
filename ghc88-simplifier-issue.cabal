@@ -1,0 +1,17 @@
+cabal-version:       >=1.10
+name:                ghc88-simplifier-issue
+version:             0.1.0.0
+author:              Wire Swiss GmbH
+maintainer:          Wire Swiss GmbH <backend@wire.com>
+license:             AGPL-3
+license-file:        LICENSE
+build-type:          Simple
+extra-source-files:  CHANGELOG.md
+
+library
+  hs-source-dirs:      src
+  build-depends:       QuickCheck
+                     , base
+
+  exposed-modules:     Test.Bonanza.Arbitrary
+  ghc-options:         -ddump-simpl-stats

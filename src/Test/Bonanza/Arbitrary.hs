@@ -25,40 +25,25 @@ module Test.Bonanza.Arbitrary where
 
 import Test.QuickCheck (Gen)
 
-data CommonLogField = CEmpty
-  deriving (Eq, Show)
-
-genFields :: Gen [(String, CommonLogField)]
+genFields :: Gen [(String, Int)]
 genFields =
   mapM
     (\(f, g) -> (f,) <$> g)
     [ ("status", genIntField),
       ("body_bytes_sent", genIntField),
-      ("http_referer", genStringField),
-      ("http_user_agent", genStringField),
-      ("http_x_forwarded_for", genIPv4Field),
-      ("separator", genEmptyField),
+      ("http_referer", genIntField),
+      ("http_user_agent", genIntField),
+      ("http_x_forwarded_for", genIntField),
+      ("separator", genIntField),
       ("connection", genIntField),
-      ("request_time", genDoubleField),
-      ("upstream_response_time", genDoubleField),
-      ("upstream_cache_status", genStringField),
-      ("user", genStringField),
-      ("zconn", genStringField),
-      ("request", genStringField),
-      ("proxy_protocol_addr", genIPv4Field)
+      ("request_time", genIntField),
+      ("upstream_response_time", genIntField),
+      ("upstream_cache_status", genIntField),
+      ("user", genIntField),
+      ("zconn", genIntField),
+      ("request", genIntField),
+      ("proxy_protocol_addr", genIntField)
     ]
 
-genIntField :: Gen CommonLogField
-genIntField = pure CEmpty
-
-genStringField :: Gen CommonLogField
-genStringField = pure CEmpty
-
-genIPv4Field :: Gen CommonLogField
-genIPv4Field = pure CEmpty
-
-genDoubleField :: Gen CommonLogField
-genDoubleField = pure CEmpty
-
-genEmptyField :: Gen CommonLogField
-genEmptyField = pure CEmpty
+genIntField :: Gen Int
+genIntField = pure 0

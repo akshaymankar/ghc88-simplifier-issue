@@ -23,7 +23,7 @@
 
 module Test.Bonanza.Arbitrary where
 
-import Test.QuickCheck (Gen)
+import Test.Bonanza.Gen
 
 genFields :: Gen [(String, Int)]
 genFields =
